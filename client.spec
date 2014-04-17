@@ -21,7 +21,6 @@ Requires:      rubygem-httpclient
 Requires:      rubygem-test-unit
 Requires:      rubygem-net-ssh
 Requires:      rubygem-net-scp
-Requires:      ruby193-rubygem-net-scp
 Requires:      rubygem-net-ssh-multi
 Requires:      rubygem-archive-tar-minitar
 Requires:      rubygem-commander
