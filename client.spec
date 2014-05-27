@@ -3,7 +3,7 @@
 
 Summary:       OpenShift client management tools
 Name:          rhc
-Version: 1.23.7.1
+Version: 1.24.3.1
 Release:       1%{?dist}
 Group:         Network/Daemons
 License:       ASL 2.0
@@ -104,15 +104,41 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0644,-,-) /etc/bash_completion.d/rhc
 
 %changelog
+* Tue May 06 2014 Troy Dawson <tdawson@redhat.com> 1.24.3-1
+- Bug 1079165 - added warning when removing external cart with zero gears
+  (contact@fabianofranz.com)
+- Workaround bundler issues (contact@fabianofranz.com)
+
+* Mon May 05 2014 Adam Miller <admiller@redhat.com> 1.24.2-1
+- Merge pull request #586 from fabianofranz/bugs/1093166-updates-rest-api-
+  to-1.7 (dmcphers+openshiftbot@redhat.com)
+- Bug 1081235: Fix RHC rate display (jliggitt@redhat.com)
+- Bug 1093166 - increases API client to version 1.7 (contact@fabianofranz.com)
+
+* Fri Apr 25 2014 Adam Miller <admiller@redhat.com> 1.24.1-1
+- bump_minor_versions for sprint 44 (admiller@redhat.com)
+- Merge pull request #585 from
+  liggitt/bug_1090912_handle_global_team_delete_error
+  (dmcphers+openshiftbot@redhat.com)
+- Update autocomplete (jliggitt@redhat.com)
+- Bug 1090912: Handle attempts to delete a global team via RHC
+  (jliggitt@redhat.com)
+- Bug 1090830: Improve help and syntax help for members command
+  (jliggitt@redhat.com)
+- Review comments (jliggitt@redhat.com)
+- Typo (jliggitt@redhat.com)
+- Guard team creation with capability check (jliggitt@redhat.com)
+- Fix incorrect feature test (jliggitt@redhat.com)
+- Team management via RHC (jliggitt@redhat.com)
+- Bug 1089665: Show application members who have their membership via domain
+  (jliggitt@redhat.com)
+
 * Mon Apr 21 2014 Brenton Leanhardt <bleanhar@redhat.com> 1.23.7.1-1
 - Revert "Add SCL dependency for client.spec-based RPM builds"
   (bleanhar@redhat.com)
 - Releasers update for 2.1 (bleanhar@redhat.com)
 - <tests> Make tests more enterprise friendly (jdetiber@redhat.com)
 
-* Mon Apr 21 2014 Adam Miller <admiller@redhat.com> 1.23.7-1
-- Bug 1089665: Show application members who have their membership via domain
-  (jliggitt@redhat.com)
 
 * Thu Apr 17 2014 Troy Dawson <tdawson@redhat.com> 1.23.6-1
 - Skip forking output for jruby (jliggitt@redhat.com)
