@@ -104,6 +104,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0644,-,-) /etc/bash_completion.d/rhc
 
 %changelog
+* Thu May 29 2014 Brenton Leanhardt <bleanhar@redhat.com> 1.24.3.1-1
+- Merge tag 'rhc-1.24.3-1' into enterprise-2.1 (bleanhar@redhat.com)
+- <tests> if REGISTER_USER is set, make sure user is available before using
+  (jdetiber@redhat.com)
+- Automatic commit of package [rhc] release [1.23.7.1-1]. (bleanhar@redhat.com)
+- Revert "Add SCL dependency for client.spec-based RPM builds"
+  (bleanhar@redhat.com)
+- Releasers update for 2.1 (bleanhar@redhat.com)
+- <tests> Make tests more enterprise friendly (jdetiber@redhat.com)
+- Automatic commit of package [rhc] release [1.23.7-1]. (admiller@redhat.com)
+- Bug 1089665: Show application members who have their membership via domain
+  (jliggitt@redhat.com)
+
 * Tue May 06 2014 Troy Dawson <tdawson@redhat.com> 1.24.3-1
 - Bug 1079165 - added warning when removing external cart with zero gears
   (contact@fabianofranz.com)
