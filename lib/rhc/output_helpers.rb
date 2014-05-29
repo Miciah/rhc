@@ -1,6 +1,24 @@
 module RHC
   module OutputHelpers
 
+    def display_team(team, ids=false)
+      paragraph do
+        header ["Team #{team.name}", ("(owned by #{team.owner})" if team.owner.present?)] do
+          section(:bottom => 1) do
+            say format_table \
+              nil,
+              get_properties(
+                team,
+                (:id if ids),
+                (:global if team.global?),
+                :compact_members
+              ),
+              :delete => true
+          end
+        end
+      end
+    end
+
     def display_domain(domain, applications=nil, ids=false)
       paragraph do
         header ["Domain #{domain.name}", ("(owned by #{domain.owner})" if domain.owner.present?)] do
@@ -144,7 +162,16 @@ module RHC
     end
 
     def format_usage_message(cart)
-      "This gear costs an additional $#{cart.usage_rate} per gear after the first 3 gears."
+      cart.usage_rates.map do |rate, plans|
+        plans = plans.map(&:capitalize) if plans
+        if plans && plans.length > 1
+          "This cartridge costs an additional $#{rate} per gear after the first 3 gears on the #{plans[0...-1].join(', ')} and #{plans[-1]} plans."
+        elsif plans && plans.length == 1
+          "This cartridge costs an additional $#{rate} per gear after the first 3 gears on the #{plans.first} plan."
+        else
+          "This cartridge costs an additional $#{rate} per gear after the first 3 gears."
+        end
+      end
     end
 
     def default_display_env_var(env_var_name, env_var_value=nil)
